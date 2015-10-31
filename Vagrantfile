@@ -20,4 +20,9 @@ Vagrant.configure(2) do |config|
   end
 
   require_plugin 'vagrant-librarian-chef'
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = %w( cookbooks site-cookbooks )
+
+    chef.add_recipe "apt"
+  end
 end

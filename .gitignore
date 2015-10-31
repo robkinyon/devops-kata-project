@@ -1,4 +1,6 @@
-# Add vi swap files.
+# Vagrant management directory
+.vagrant
+# vi swap files.
 .*.sw?
 
 # Logs

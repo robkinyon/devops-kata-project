@@ -1,0 +1,10 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    apt (2.9.2)
+    build-essential (2.2.4)
+
+DEPENDENCIES
+  apt (>= 0)
+  build-essential (>= 0)
+

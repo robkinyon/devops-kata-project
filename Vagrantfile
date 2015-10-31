@@ -18,4 +18,6 @@ Vagrant.configure(2) do |config|
     # Customize the amount of memory on the VM:
     vb.memory = "2048"
   end
+
+  require_plugin 'vagrant-librarian-chef'
 end

@@ -3,6 +3,10 @@
 # vi swap files.
 .*.sw?
 
+# Librarian-chef managed directories
+cookbooks/
+tmp/
+
 # Logs
 logs
 *.log

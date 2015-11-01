@@ -24,5 +24,14 @@ Vagrant.configure(2) do |config|
     chef.cookbooks_path = %w( cookbooks site-cookbooks )
 
     chef.add_recipe "apt"
+    chef.add_recipe "redisio"
+    chef.add_recipe "redisio::enable"
+
+    chef.json = {
+      'redisio' => {
+        'package_install' => true,
+        'package_name'    => 'redis-server',
+      }
+    }
   end
 end

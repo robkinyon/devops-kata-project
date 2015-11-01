@@ -3,8 +3,13 @@ SITE
   specs:
     apt (2.9.2)
     build-essential (2.2.4)
+    redisio (2.3.0)
+      build-essential (>= 0.0.0)
+      ulimit (>= 0.1.2)
+    ulimit (0.3.3)
 
 DEPENDENCIES
   apt (>= 0)
   build-essential (>= 0)
+  redisio (>= 0)
 

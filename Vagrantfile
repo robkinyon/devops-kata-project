@@ -22,16 +22,8 @@ Vagrant.configure(2) do |config|
   require_plugin 'vagrant-librarian-chef'
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = %w( cookbooks site-cookbooks )
+    chef.roles_path = %w( site-roles )
 
-    chef.add_recipe "apt"
-    chef.add_recipe "redisio"
-    chef.add_recipe "redisio::enable"
-
-    chef.json = {
-      'redisio' => {
-        'package_install' => true,
-        'package_name'    => 'redis-server',
-      }
-    }
+    chef.add_role 'datastore'
   end
 end

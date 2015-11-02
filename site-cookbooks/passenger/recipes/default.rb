@@ -16,3 +16,8 @@ end
 package 'passenger' do
   action :install
 end
+
+file '/etc/nginx/conf.d/passenger.conf' do
+  content 'passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;'
+  notifies :restart, 'service[nginx]', :delayed
+end

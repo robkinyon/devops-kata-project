@@ -29,5 +29,6 @@ Vagrant.configure(2) do |config|
     chef.add_role 'datastore'
     chef.add_role 'appserver'
     chef.add_role 'webserver'
+    chef.add_role 'application'
   end
 end

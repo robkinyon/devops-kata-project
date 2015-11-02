@@ -23,8 +23,8 @@ template '/etc/nginx/conf.d/passenger.conf' do
   owner 'root'
   group 'root'
   variables({
-     :passenger_root => `passenger-config --root`.chomp!,
-     :passenger_ruby => `which passenger_free_ruby`.chomp!,
+    :passenger_root => `passenger-config --root`.chomp!,
+    :passenger_ruby => `which passenger_free_ruby`.chomp!,
   })
   notifies :restart, 'service[nginx]', :delayed
 end

@@ -1,4 +1,4 @@
-describe package('nginx'), :if => os[:family] == 'ubuntu' do
+describe package('nginx-common'), :if => os[:family] == 'ubuntu' do
   it { should be_installed }
 end
 

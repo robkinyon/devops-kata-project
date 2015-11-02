@@ -25,6 +25,7 @@ Vagrant.configure(2) do |config|
     chef.roles_path = %w( site-roles )
 
     chef.add_role 'datastore'
+    chef.add_role 'appserver'
     chef.add_role 'webserver'
   end
 end

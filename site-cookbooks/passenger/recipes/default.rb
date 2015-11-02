@@ -1,3 +1,4 @@
+# q.v. https://www.phusionpassenger.com/library/install/nginx/install/oss/trusty/
 apt_repository :passenger do
   uri 'https://oss-binaries.phusionpassenger.com/apt/passenger'
   distribution 'trusty'
@@ -7,6 +8,7 @@ apt_repository :passenger do
 end
 
 package 'nginx-extras' do
+  # q.v. http://serverfault.com/a/605168
   options '-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"'
   action :install
 end

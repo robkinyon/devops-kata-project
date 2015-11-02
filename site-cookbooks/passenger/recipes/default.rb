@@ -17,7 +17,14 @@ package 'passenger' do
   action :install
 end
 
-file '/etc/nginx/conf.d/passenger.conf' do
-  content 'passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;'
+template '/etc/nginx/conf.d/passenger.conf' do
+  source 'passenger_conf.erb'
+  mode '0644'
+  owner 'root'
+  group 'root'
+  variables({
+     :passenger_root => `passenger-config --root`.chomp!,
+     :passenger_ruby => `which passenger_free_ruby`.chomp!,
+  })
   notifies :restart, 'service[nginx]', :delayed
 end

@@ -17,8 +17,12 @@ Steps to run:
     * check for required plugin installation
       * vagrant-vbguest
       * vagrant-librarian-chef
-    * install the box and ensure the guest additions and Chef are correct.
+    * install the .box file
     * download all required cookbooks
+    * provision the Vagrant VM using chef-solo
 * `rake spec`
   * This will:
     * Verify that everything was installed properly on the VM.
+* Browse to `http://localhost:8080/` to see the "ping page" showing the status of
+Redis, Nginx, and Passenger.
+  * This is served by the Sinatra application within the `application/` directory.

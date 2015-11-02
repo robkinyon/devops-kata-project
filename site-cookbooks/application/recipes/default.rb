@@ -1,3 +1,7 @@
+gem_package 'bundler' do
+  notifies :restart, 'service[nginx]', :delayed
+end
+
 template '/etc/nginx/conf.d/application.conf' do
   source 'application_conf.erb'
   mode '0644'
@@ -9,14 +13,12 @@ template '/etc/nginx/conf.d/application.conf' do
   notifies :restart, 'service[nginx]', :delayed
 end
 
-directory '/var/www' do
-  action :create
-  recursive true
+link '/var/www' do
+  to '/vagrant/application'
+  notifies :restart, 'service[nginx]', :delayed
 end
 
-template '/var/www/index.html' do
-  source 'index_html.erb'
-  mode '0644'
-  owner 'root'
-  group 'root'
+execute 'bundle install' do
+  cwd '/var/www'
+  notifies :restart, 'service[nginx]', :delayed
 end

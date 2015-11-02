@@ -1,2 +1,7 @@
-passenger_root <%= @passenger_root -%>;
-passenger_ruby <%= @passenger_ruby -%>;
+<%#
+  Because the system calls are made when Chef runs, these cannot be kept within
+  the recipe. Instead, pull them out here to when the template is executed. This
+  ensures passenger-config is installed before it's called.
+%>
+passenger_root <%= `passenger-config --root`.chomp! -%>;
+passenger_ruby <%= `which passenger_free_ruby`.chomp! -%>;
